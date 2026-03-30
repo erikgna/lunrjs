@@ -1,0 +1,481 @@
+/* ── Root override for presentation layout ── */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  min-height: 100svh;
+  text-align: left;
+}
+
+/* ── Shell ───────────────────────────────── */
+.presentation {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+/* ── Header ──────────────────────────────── */
+.pres-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.pres-brand {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pres-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot--active {
+  background: var(--accent);
+  transform: scale(1.5);
+}
+
+.pres-counter {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ── Slide area ──────────────────────────── */
+.pres-main {
+  overflow: auto;
+}
+
+.slide {
+  padding: 36px 48px;
+  box-sizing: border-box;
+  min-height: calc(100svh - 96px);
+}
+
+.slide--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.slide--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .slide { padding: 24px 20px; }
+  .slide--split { grid-template-columns: 1fr; }
+}
+
+/* ── Typography ──────────────────────────── */
+.slide-h1 {
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  margin: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--text-h) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 10px;
+  letter-spacing: -0.4px;
+}
+
+.slide-subtitle {
+  font-size: 20px;
+  color: var(--text);
+  margin: 0;
+}
+
+.slide-lead {
+  font-size: 17px;
+  color: var(--text);
+  max-width: 560px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Title slide decorations ─────────────── */
+.title-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 20px;
+  padding: 4px 16px;
+}
+
+.pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pill {
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  background: var(--code-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* ── Feature grid ────────────────────────── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 260px);
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.feature-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.feature-card strong {
+  display: block;
+  color: var(--text-h);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Code blocks ─────────────────────────── */
+.code-block {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--text-h);
+  overflow-x: auto;
+  margin: 10px 0;
+  white-space: pre;
+}
+
+/* ── Split layout internals ──────────────── */
+.split-left,
+.split-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.split-right {
+  position: sticky;
+  top: 60px;
+}
+
+.demo-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Search input ────────────────────────── */
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 14px;
+  font-family: var(--sans);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* ── Results ─────────────────────────────── */
+.result-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.result-title {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.result-score {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.no-results {
+  color: var(--text);
+  font-size: 13px;
+  font-style: italic;
+  margin: 0;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Controls ────────────────────────────── */
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.toggle-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+}
+
+.slider-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-h);
+}
+
+.slider-label span {
+  font-family: var(--mono);
+  min-width: 72px;
+  font-size: 12px;
+}
+
+.slider-label input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+/* ── Metadata & serial preview ───────────── */
+.metadata-box,
+.serial-preview {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.meta-pre {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-h);
+  margin: 6px 0 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ── Param table (BM25 slide) ────────────── */
+.param-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.param-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 13px;
+}
+
+.param-row code {
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--mono);
+}
+
+/* ── Button ──────────────────────────────── */
+.btn-primary {
+  padding: 9px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+/* ── Tag ─────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
+/* ── Summary grid ────────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 880px;
+}
+
+.summary-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.summary-card p {
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Footer nav ──────────────────────────── */
+.pres-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.nav-btn {
+  padding: 7px 18px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  font-size: 13px;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--code-bg);
+  border-color: var(--accent-border);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.slide-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ── Links ───────────────────────────────── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
