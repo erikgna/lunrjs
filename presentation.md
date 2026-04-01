@@ -40,14 +40,14 @@ Trade-offs
 
 PROS
 
-No backend needed - we can eliminate the API, infra and maitenance.
-Extremely fast (client-side) - Search happens instantly because there’s no network latency
-Easy to integrate - It’s just a small JS lib, we can get it working in minutes
+- No backend needed - we can eliminate the API, infra and maitenance.
+- Extremely fast (client-side) - Search happens instantly because there’s no network latency
+- Easy to integrate - It’s just a small JS lib, we can get it working in minutes
 
 CONS
-Loads data into browser memory - Since all searchable data lives in memory, the size directly impacts performance
-Not ideal for large datasets (10k+ docs) - At scale, memory and performance become bottlenecks.
-Indexing cost on client - Building the index takes time and CPU in the user’s browser
+- Loads data into browser memory - Since all searchable data lives in memory, the size directly impacts performance
+- Not ideal for large datasets (10k+ docs) - At scale, memory and performance become bottlenecks.
+- Indexing cost on client - Building the index takes time and CPU in the user’s browser
 
 ## Slide 6
 
