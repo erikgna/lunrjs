@@ -19,19 +19,17 @@ Something like a mini Elasticsearch running on our frontend.
 
 ## Slide 4
 
-It works in a few steps.
+It works in a few simple steps.
 
-First we need to add documents to the index.
-It will tokenize the text, normalize it, and stem it.
-It allows us to match words even if they’re slightly different.
+First, we add documents to the index. The text is cleaned and broken into tokens, so similar words can still match.
 
-The second step is to build the index. We use a inverted index to store the words and the documents that contain them.
+Next, we build an inverted index, which maps words to the documents that contain them.
 
-The third step is to score the results by relevance, rare words that are frequent in a document get a higher score, common words get a lower score.
+Then, we score results by relevance. Rare and important words in a document get higher weight, while common words get less.
 
-The fourth step is to process the query, it will tokenize the query, look up the tokens in the inverted index, combine the matches, and rank the results by score.
+When a user searches, the query goes through the same process. We look up the terms, combine the matches, and rank the results.
 
-Finally, the index is built in JavaScript, stored in memory, and queries are executed instantly.
+All of this runs in JS, in memory, so searches are extremely fast.
 
 ## Slide 5
 
