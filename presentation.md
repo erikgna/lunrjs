@@ -32,13 +32,13 @@ When a user searches, the query goes through the same process. We look up the te
 All of this runs in JS, in memory, so searches are extremely fast.
 
 
---
+--------
 e = i
 a = e
 
 b = order by content size (disable to stop it)
 k1 = order by amount of times the searched token appears in the content (disable to stop it)
---
+--------
 
 
 ## Slide 5
